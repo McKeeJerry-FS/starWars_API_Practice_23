@@ -1,12 +1,11 @@
-function displayMessage() {
-    // get the text out of input and assign to a variable
-    let msg = document.getElementById('message').value;
-    
-    Swal.fire(
-        {
-            backdrop: false,
-            title: 'APP NAME',
-            text: msg, // <-- replace this with the variable
-        }
-    );
+// get Star Wars facts
+async function getFacts() {
+    try {
+        let response = await fetch('https://swapi.dev/api/planets/3');
+        let data = await response.text();
+
+        document.getElementById('swapiList').textContent = data;
+    } catch {
+
+    }
 }
